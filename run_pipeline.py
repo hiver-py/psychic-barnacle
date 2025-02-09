@@ -7,7 +7,9 @@ def main():
     config = load_config_from_json()
     print("Loading dataset.")
     data = load_and_split_data(config)
+    # While developing the code a subsample is sufficient.
     data = data["unsupervised"].shuffle(seed=config.seed).select(range(100))
+    print("Cleans text.")
     cleaned_dataset = [clean_text(review) for review in data["text"]]
     print(cleaned_dataset)
 
