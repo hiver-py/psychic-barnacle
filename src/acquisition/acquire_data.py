@@ -1,6 +1,8 @@
 import logging
+
+from datasets import Dataset, DatasetDict, load_dataset
+
 from src.utils.config import Config
-from datasets import load_dataset, DatasetDict, Dataset
 
 logger = logging.getLogger(__name__)
 
