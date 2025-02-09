@@ -1,0 +1,35 @@
+[project]
+name = "psychic-barnacle"
+version = "0.1.0"
+description = "Quick autogluon experiment"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "autogluon>=1.2",
+    "datasets>=3.2.0",
+    "nltk>=3.8.1",
+    "pandas>=2.2.3",
+    "scikit-learn>=1.5.2",
+    "torch>=2.5.1",
+    "transformers>=4.48.3",
+]
+
+
+[dependency-groups]
+dev = [
+    "faker>=35.0.0",
+    "nbstripout>=0.8.1",
+    "pre-commit>=4.1.0",
+    "pytest>=8.3.4",
+    "pytest-cov>=6.0.0",
+    "ruff>=0.9.5",
+]
+
+[tool.ruff.lint]
+select = [
+    "E", "F", "I"
+]
+
+[tool.ruff]
+target-version = "py312"
+line-length  = 120
