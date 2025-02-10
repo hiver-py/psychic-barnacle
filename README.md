@@ -44,3 +44,6 @@ uv run pre-commit run -a
 
 ## To Dos:
 - Reformat saving of google search jsonl to take place after processing of search results.
+- Add processing of search results.
+- Add OpenAI capabilities.
+- Add local LLM capabilities.
