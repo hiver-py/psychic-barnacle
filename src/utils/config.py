@@ -18,4 +18,4 @@ class Config(pydantic.BaseModel):
         "cuda" if torch.cuda.is_available() else "cpu", description="Whether to use GPU or CPU."
     )
     seed: int = pydantic.Field(10, description="Seed to use for reproducibility.")
-    output_dir: str = pydantic.Field("./src/artifacts", description="Directory to save the trained model and artifacts")
+    output_dir: str = pydantic.Field("src/artifacts/", description="Directory to save the trained model and artifacts")

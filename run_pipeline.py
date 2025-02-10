@@ -17,7 +17,7 @@ def main():
     data = data["unsupervised"].shuffle(seed=config.seed).select(range(100))
     print("Cleans text.")
     cleaned_dataset = [clean_text(review) for review in data["text"]]
-    search_results = search_google(cleaned_dataset[0], num_results=5)
+    search_results = search_google(config, cleaned_dataset[0], num_results=5, save_search_results=True)
     for result in search_results:
         print(result)
 

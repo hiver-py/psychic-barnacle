@@ -1,3 +1,4 @@
+import json
 import os
 from typing import List
 
@@ -10,8 +11,11 @@ class SearchResult(BaseModel):
     url: str
     description: str
 
+    def to_dict(self) -> dict:
+        return {"title": self.title, "url": self.url, "description": self.description}
 
-def search_google(query: str, num_results: int) -> List[SearchResult]:
+
+def search_google(config, query: str, num_results: int, save_search_results: bool) -> List[SearchResult]:
     API_KEY = os.getenv("API_KEY")
     SEARCH_ENGINE_ID = os.getenv("SEARCH_ENGINE_ID")
 
@@ -27,9 +31,20 @@ def search_google(query: str, num_results: int) -> List[SearchResult]:
     data = response.json()
 
     results_list = []
-    for item in data.get("items", []):
-        results_list.append(
-            SearchResult(title=item.get("title", ""), url=item.get("link", ""), description=item.get("snippet", ""))
-        )
-
+    if save_search_results:
+        with open(config.output_dir + "search_results.jsonl", "a") as jsonl_file:
+            for item in data.get("items", []):
+                search_result = SearchResult(
+                    title=item.get("title", ""), url=item.get("link", ""), description=item.get("snippet", "")
+                )
+                # Convert the SearchResult object to a dictionary and then to a JSON string
+                json_line = json.dumps(search_result.to_dict())
+                # Write the JSON string to the file, followed by a newline
+                jsonl_file.write(json_line + "\n")
+                results_list.append(search_result)
+    else:
+        for item in data.get("items", []):
+            results_list.append(
+                SearchResult(title=item.get("title", ""), url=item.get("link", ""), description=item.get("snippet", ""))
+            )
     return results_list

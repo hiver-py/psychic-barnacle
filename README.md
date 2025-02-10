@@ -41,3 +41,6 @@ How to run the pre-commits using uv:
 uv run pre-commit install
 uv run pre-commit run -a
 ```
+
+## To Dos:
+- Reformat saving of google search jsonl to take place after processing of search results.
