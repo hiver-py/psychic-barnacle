@@ -23,6 +23,7 @@ once you exceed a certain amount of requests. See [ Custom Search JSON API ](htt
 ```
 API_KEY = 
 SEARCH_ENGINE_ID = 
+GEMINI_API_KEY = 
 ```
 
 ## Usage
@@ -32,6 +33,20 @@ Activate the uv environment and run:
 ```
 python run_pipeline.py
 ```
+
+## Resources
+
+Keep up to date with the supported [Gemini models] (https://ai.google.dev/gemini-api/docs/models/) and their supported functionality or run:
+
+```python
+ for m in genai.list_models():
+     if 'generateContent' in m.supported_generation_methods:
+         print(m)
+ ```
+
+A valid model name shoulder be specified in the config. 
+
+Overview of [Google Geminis SDK] (https://cloud.google.com/vertex-ai/generative-ai/docs/sdks/overview), and the official [repository] (https://github.com/googleapis/python-genai).
 
 ## Running pre-commits
 
@@ -45,5 +60,4 @@ uv run pre-commit run -a
 ## To Dos:
 - Reformat saving of google search jsonl to take place after processing of search results.
 - Add processing of search results.
-- Add OpenAI capabilities.
 - Add local LLM capabilities.
