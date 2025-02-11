@@ -36,7 +36,7 @@ python run_pipeline.py
 
 ## Resources
 
-Keep up to date with the supported [Gemini models] (https://ai.google.dev/gemini-api/docs/models/) and their supported functionality or run:
+Keep up to date with the supported [Gemini models](https://ai.google.dev/gemini-api/docs/models/) and their supported functionality or run:
 
 ```python
  for m in genai.list_models():
@@ -46,7 +46,7 @@ Keep up to date with the supported [Gemini models] (https://ai.google.dev/gemini
 
 A valid model name shoulder be specified in the config. 
 
-Overview of [Google Geminis SDK] (https://cloud.google.com/vertex-ai/generative-ai/docs/sdks/overview), and the official [repository] (https://github.com/googleapis/python-genai).
+Overview of [Google Geminis SDK](https://cloud.google.com/vertex-ai/generative-ai/docs/sdks/overview), and the official [repository](https://github.com/googleapis/python-genai).
 
 ## Running pre-commits
 
