@@ -61,5 +61,6 @@ uv run pre-commit run -a
 - Reformat saving of google search jsonl to take place after processing of search results.
 - Add processing of search results.
 - Add processing of Gemini model predictions
+- Add support to unpack GeminiConfig together with the structured output config.
 - Add support to limit costs for Gemini usage? 
 - Add local LLM capabilities.
